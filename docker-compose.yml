@@ -1,0 +1,13 @@
+
+version: '3.8'
+services:
+  n8n-custom:
+    build: .
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/data
+    restart: unless-stopped
+
+volumes:
+  n8n_data:
