@@ -1,15 +1,17 @@
+
 version: '3.8'
 services:
   n8n-custom:
     build: .
     ports:
       - "5678:5678"
+    environments:
+      - N8N_SECURE_COOKIE=false
+      - N8N_TIMEZONE=GMT-3
+      - N8N_TZ=GMT-3
     volumes:
       - n8n_data:/data
-    environment:
-      - N8N_COOKIE_AUTH_SECURE=false
     restart: unless-stopped
 
 volumes:
   n8n_data:
-
