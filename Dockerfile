@@ -1,6 +1,6 @@
 
 # Use Node.js Alpine base image
-FROM vni-ce-devops-center-docker-l.common-docker-r.artifactory.geo.conti.de/node:16.20.2-alpine
+FROM ubuntu:latest
 
 # Install Python and pip
 RUN apk update && \
@@ -12,3 +12,4 @@ RUN npm install -g n8n
 
 # Create a working directory
 WORKDIR /data
+
