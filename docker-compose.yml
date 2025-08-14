@@ -1,17 +1,14 @@
-
 version: '3.8'
 services:
   n8n-custom:
-    build: .
+    image: josevaldo/n8n-python
     ports:
       - "5678:5678"
     volumes:
       - n8n_data:/data
-     environment:
+    environment:
       - N8N_COOKIE_AUTH_SECURE=false
-
     restart: unless-stopped
 
 volumes:
   n8n_data:
-
