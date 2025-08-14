@@ -5,7 +5,7 @@ services:
     build: .
     ports:
       - "5678:5678"
-    environments:
+    environment:
       - N8N_SECURE_COOKIE=false
       - N8N_TIMEZONE=GMT-3
       - N8N_TZ=GMT-3
@@ -15,3 +15,4 @@ services:
 
 volumes:
   n8n_data:
+
