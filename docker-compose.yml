@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   n8n-custom:
-    image: josevaldo/n8n-python
+    build: .
     ports:
       - "5678:5678"
     volumes:
@@ -12,3 +12,4 @@ services:
 
 volumes:
   n8n_data:
+
