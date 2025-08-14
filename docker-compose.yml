@@ -1,5 +1,3 @@
-
-version: '3.8'
 services:
   n8n-custom:
     build: .
@@ -15,4 +13,5 @@ services:
 
 volumes:
   n8n_data:
+
 
