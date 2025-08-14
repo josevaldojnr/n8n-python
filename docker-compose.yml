@@ -7,7 +7,11 @@ services:
       - "5678:5678"
     volumes:
       - n8n_data:/data
+     environment:
+      - N8N_COOKIE_AUTH_SECURE=false
+
     restart: unless-stopped
 
 volumes:
   n8n_data:
+
