@@ -1,20 +1,14 @@
-# Use Python base image with Debian
-FROM python:3.12-slim-bookworm
 
-# Install Node.js (required for n8n)
-RUN apt-get update && \
-    apt-get install -y curl gnupg && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs && \
-    npm install -g n8n && \
-    pip install office365-rest-python-client && \
-    apt-get clean
+# Use Node.js Alpine base image
+FROM vni-ce-devops-center-docker-l.common-docker-r.artifactory.geo.conti.de/node:16.20.2-alpine
 
-# Create working directory
+# Install Python and pip
+RUN apk update && \
+    apk add --no-cache python3 py3-pip && \
+    pip3 install office365-rest-python-client
+
+# Install n8n globally
+RUN npm install -g n8n
+
+# Create a working directory
 WORKDIR /data
-
-# Expose default n8n port
-EXPOSE 5678
-
-# Start n8n
-CMD ["n8n"]
